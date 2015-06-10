@@ -1,5 +1,5 @@
 require 'rack/test'
-require_relative '../lib/gervais_quote'
+require_relative '../lib/random_quote'
 
 QUOTES = []
 File.open('./fixtures/rickygervais.txt', 'r') do |f|
@@ -8,7 +8,7 @@ File.open('./fixtures/rickygervais.txt', 'r') do |f|
   end
 end
 
-describe GervaisQuote do
+describe RandomQuote do
   include Rack::Test::Methods
 
   let(:app) do
@@ -17,14 +17,14 @@ describe GervaisQuote do
     end
   end
 
-  let(:gervais_app) { GervaisQuote.new(app) }
+  let(:quote_app) { RandomQuote.new(app) }
 
   it 'shows body of app when path is not "/quote"' do
     get '/'
     expect(last_response.body).to eq('This is the content of app.')
   end
 
-  it 'shows a random Ricky Gervais quote when path is "/quote"' do
+  it 'shows a random quote when path is "/quote"' do
     get '/quote'
     expect(QUOTES).to include(last_response.body)
   end
