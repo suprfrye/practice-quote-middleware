@@ -1,5 +1,11 @@
 class GervaisQuote
   QUOTES = []
+  File.open('./fixtures/rickygervais.txt', 'r') do |f|
+    f.each_line do |line|
+      QUOTES << line
+    end
+  end
+
   def initialize(app)
     @app = app
   end
