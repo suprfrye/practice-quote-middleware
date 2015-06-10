@@ -12,4 +12,9 @@ describe GervaisQuote do
 
   let(:gervais_app) { GervaisQuote.new(app) }
 
+  it 'shows body of app when path is not "/quote"' do
+    get '/'
+    expect(last_response.body).to eq('This is the content of app.')
+  end
+
 end
