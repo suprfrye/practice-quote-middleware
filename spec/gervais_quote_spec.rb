@@ -10,4 +10,6 @@ describe GervaisQuote do
     end
   end
 
+  let(:gervais_app) { GervaisQuote.new(app) }
+
 end
