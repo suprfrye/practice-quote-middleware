@@ -1,4 +1,5 @@
 class GervaisQuote
+  QUOTES = []
   def initialize(app)
     @app = app
   end
