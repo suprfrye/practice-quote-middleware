@@ -1,6 +1,13 @@
 require 'rack/test'
 require_relative '../lib/gervais_quote'
 
+QUOTES = []
+File.open('./fixtures/rickygervais.txt', 'r') do |f|
+  f.each_line do |line|
+    QUOTES << line
+  end
+end
+
 describe GervaisQuote do
   include Rack::Test::Methods
 
@@ -21,5 +28,4 @@ describe GervaisQuote do
     get '/quote'
     expect(QUOTES).to include(last_response.body)
   end
-
 end
