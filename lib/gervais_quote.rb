@@ -1,0 +1,2 @@
+class GervaisQuote
+end
