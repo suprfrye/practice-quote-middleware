@@ -1,6 +1,6 @@
 require 'rack'
 require 'rack/lobster'
-require_relative 'lib/gervais_quote'
+require_relative 'lib/random_quote'
 
-use GervaisQuote
+use RandomQuote
 run Rack::Lobster.new
