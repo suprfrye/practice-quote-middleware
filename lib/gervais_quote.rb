@@ -12,7 +12,7 @@ class GervaisQuote
 
   def call(env)
     if env['PATH_INFO'] == '/quote'
-      [200, {'Content-Type' => 'text/plain'}, ['Ricky quote.']]
+      [200, {'Content-Type' => 'text/plain'}, [QUOTES.sample]]
     else
       @app.call(env)
     end
