@@ -17,4 +17,9 @@ describe GervaisQuote do
     expect(last_response.body).to eq('This is the content of app.')
   end
 
+  it 'shows a random Ricky Gervais quote when path is "/quote"' do
+    get '/quote'
+    expect(QUOTES).to include(last_response.body)
+  end
+
 end
